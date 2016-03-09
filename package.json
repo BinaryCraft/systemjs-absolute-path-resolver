@@ -7,14 +7,14 @@
     "test": "test"
   },
   "scripts": {
-    "produceCoverageReport": "isparta cover --include-all-sources --root source _mocha -- --compilers js:babel-register",
+    "produceCoverageReport": "isparta cover --verbose --include-all-sources --root source _mocha -- --compilers js:babel-register",
     "compile": "babel source --out-dir dist",
     "prepublish": "npm run compile",
     "checkStyle" : "./node_modules/.bin/jscs .",
     "lint" : "./node_modules/.bin/jshint .",
     "qualityAssurance": "npm run checkStyle & npm run lint & npm run produceCoverageReport && npm run checkCoverage",
     "checkCoverage" : "istanbul check-coverage --statement 100 --line 100 --branch 100  --function 100",
-    "test" : "npm run qualityAssurance"
+    "test" : "npm run produceCoverageReport"
   },
   "author": "Marthinus Engelbrect",
   "license": "ISC",
